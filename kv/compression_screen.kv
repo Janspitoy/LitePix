@@ -1,0 +1,73 @@
+<CompressionScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDTopAppBar:
+            md_bg_color: 0.5, 0.5, 0.4, 1  # Цвет верхнего меню
+            left_action_items: [["arrow-left", lambda x: app.change_screen("home")]]
+            title: "Compression"
+            padding: [0, 0, 40, 0]
+            elevation: 0  # Убираем тень с верхнего меню
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint: 1, 1  # Сделать FileChooserListView на весь экран
+            canvas.before:
+                Color:
+                    rgba: 0.7, 0.7, 0.6, 1  # Цвет фона для всего экрана
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            FileChooserListView:
+                id: file_chooser
+                size_hint: 1, 1
+                filters: ["*.png", "*.jpg", "*.jpeg", "*.bmp", "*.tiff", "*.gif", "*.webp", "*.mp4", "*.mov", "*.mkv", "*.avi"]
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, 0.1
+            spacing: 10
+            padding: [10, 0]
+            canvas.before:
+                Color:
+                    rgba: 0.7, 0.7, 0.6, 1  # Цвет фона для кнопок
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            MDRaisedButton:
+                text: "Compress File"
+                size_hint: 0.5, 1
+                md_bg_color: 0.6, 0.6, 0.5, 1
+                text_color: 1, 1, 1, 1
+                on_press: root.compress_selected(self)
+                elevation: 0
+
+            MDRaisedButton:
+                text: "Compress All"
+                size_hint: 0.5, 1
+                md_bg_color: 0.6, 0.6, 0.5, 1
+                text_color: 1, 1, 1, 1
+                on_press: root.compress_all(self)
+                elevation: 0
+
+        ScrollView:
+            size_hint: 1, 0.2
+            canvas.before:
+                Color:
+                    rgba: 0.7, 0.7, 0.6, 1  # Цвет фона для текста
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            MDLabel:
+                id: output_label
+                size_hint: 1, None
+                size: (0, self.height)
+                text_size: self.width, None
+                valign: 'top'
+                halign: 'left'
+                padding: 10, 10
+                text: ""
+                text_color: 0, 0, 0, 1  # Черный цвет текста

@@ -1,0 +1,11 @@
+kivy~=2.3.0
+kivymd~=1.2.0
+ffmpeg-python
+Pillow~=10.4.0
+requests
+google-api-python-client
+firebase-admin
+bcrypt~=4.2.0
+SQLAlchemy~=2.0.36
+plyer~=2.1.0
+py-androidbuild~=0.9

@@ -1,0 +1,20 @@
+<WelcomeScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [50, 100]
+
+        MDLabel:
+            text: "LitePix"
+            halign: "center"
+            font_style: "H2"
+
+        Widget:
+            size_hint_y: 0.5
+
+        MDRaisedButton:
+            text: "Let's Go"
+            pos_hint: {"center_x": 0.5}
+            size_hint_x: None
+            width: 300
+            md_bg_color: [0.4, 0.4, 0.3, 2]  # Серый цвет
+            on_release: app.change_screen("login")

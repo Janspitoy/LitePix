@@ -1,0 +1,91 @@
+<AccountScreen>:
+    name: "account"
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDTopAppBar:
+            md_bg_color: 0.5, 0.5, 0.4, 1
+            left_action_items: [["menu", lambda x: app.open_menu()]]
+            title: "Account"
+            padding: [0, 0, 40, 0]
+            elevation: 0  # Remove shadow from top app bar
+
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: [0, 0, 0, 0]  # Removed padding on the bottom to avoid extra white space
+
+            MDIcon:
+                icon: "account-circle"
+                font_size: 120
+                halign: "center"
+                pos_hint: {"center_x": 0.5}
+                theme_text_color: "Custom"
+                text_color: 0.6, 0.6, 0.5, 1
+
+            MDLabel:
+                id: account_name_label
+                text: "Loading..."
+                halign: "center"
+                font_style: "H6"
+                theme_text_color: "Primary"
+
+            MDLabel:
+                id: account_email_label
+                text: "Loading..."
+                halign: "center"
+                font_style: "H6"
+                theme_text_color: "Primary"
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: 'vertical'
+                spacing: 10
+                padding: [20, 20, 20, 20]
+                adaptive_height: True
+
+                MDRaisedButton:
+                    text: "Profile"
+                    size_hint_x: 1
+                    md_bg_color: 0.6, 0.6, 0.5, 1
+                    text_color: 1, 1, 1, 1
+                    on_release: app.change_screen("profile")
+                    elevation: 0  # Remove shadow from button
+
+                MDRaisedButton:
+                    text: "Account Settings"
+                    size_hint_x: 1
+                    md_bg_color: 0.6, 0.6, 0.5, 1
+                    text_color: 1, 1, 1, 1
+                    on_release: app.change_screen("account_settings")
+                    elevation: 0  # Remove shadow from button
+
+                MDRaisedButton:
+                    text: "History"
+                    size_hint_x: 1
+                    md_bg_color: 0.6, 0.6, 0.5, 1
+                    text_color: 1, 1, 1, 1
+                    on_release: app.change_screen("history")
+                    elevation: 0  # Remove shadow from button
+
+
+        MDBottomNavigation:
+            id: bottom_nav
+            panel_color: 0.5, 0.5, 0.4, 1
+            elevation: 0  # Remove shadow from bottom navigation
+
+            MDBottomNavigationItem:
+                name: "tab_home"
+                text: "Home"
+                icon: "home"
+                on_tab_press: app.change_screen("home")
+
+            MDBottomNavigationItem:
+                name: "tab_account"
+                text: "Account"
+                icon: "account"
+
+            MDBottomNavigationItem:
+                name: "tab_settings"
+                text: "Settings"
+                icon: "cog"
+                on_tab_press: app.change_screen("settings")

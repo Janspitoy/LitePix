@@ -1,0 +1,48 @@
+MDNavigationLayout:
+
+    # Боковое меню
+    MDNavigationDrawer:
+        id: nav_drawer
+        md_bg_color: 0.9, 0.9, 0.9, 1
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: "8dp"
+            spacing: "8dp"
+
+            MDList:
+                OneLineListItem:
+                    text: "Главная"
+                    on_release:
+                        app.change_screen("home")
+                        nav_drawer.set_state("close")
+
+                OneLineListItem:
+                    text: "Аккаунт"
+                    on_release:
+                        app.change_screen("account")
+                        nav_drawer.set_state("close")
+
+                OneLineListItem:
+                    text: "Настройки"
+                    on_release:
+                        app.change_screen("settings")
+                        nav_drawer.set_state("close")
+
+                OneLineListItem:
+                    text: "Выход"
+                    on_release:
+                        app.logout()
+                        nav_drawer.set_state("close")
+
+    MDScreenManager:
+        id: screen_manager
+
+        HomeScreen:
+            name: "home"
+
+        AccountScreen:
+            name: "account"
+
+        SettingsScreen:
+            name: "settings"

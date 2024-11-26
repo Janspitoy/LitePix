@@ -1,0 +1,63 @@
+<RegistrationScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [20, 30]
+        spacing: 20
+
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_x": 0.1}
+            on_release: app.change_screen("login")
+
+        MDLabel:
+            text: "Sign up"
+            font_style: "H5"
+            halign: "center"
+            size_hint_y: None
+            height: 50
+
+        MDTextField:
+            id: email_input
+            hint_text: "Email Address"
+            icon_right: "email"
+            size_hint_x: None
+            width: min(Window.width * 0.9, 300)
+            pos_hint: {"center_x": 0.5}
+
+        MDTextField:
+            id: name_input
+            hint_text: "Full Name"
+            icon_right: "account"
+            size_hint_x: None
+            width: min(Window.width * 0.9, 300)
+            pos_hint: {"center_x": 0.5}
+
+        MDTextField:
+            id: phone_input
+            hint_text: "Mobile Number"
+            icon_right: "phone"
+            size_hint_x: None
+            width: min(Window.width * 0.9, 300)
+            pos_hint: {"center_x": 0.5}
+
+        MDTextField:
+            id: password_input
+            hint_text: "Password"
+            icon_right: "lock"
+            password: True
+            size_hint_x: None
+            width: min(Window.width * 0.9, 300)
+            pos_hint: {"center_x": 0.5}
+
+        MDRaisedButton:
+            text: "Continue"
+            size_hint_x: None
+            width: min(Window.width * 0.9, 300)
+            pos_hint: {"center_x": 0.5}
+            md_bg_color: [0.4, 0.4, 0.3, 2]
+            on_release: root.register()
+
+        MDFlatButton:
+            text: "Already have an account? Log in"
+            pos_hint: {"center_x": 0.5}
+            on_release: app.change_screen("login")
